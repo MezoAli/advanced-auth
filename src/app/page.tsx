@@ -2,8 +2,8 @@
 import { Text } from "@chakra-ui/react";
 export default function Home() {
 	return (
-		<Text fontSize="xl" textAlign="center">
-			Hello World !!
-		</Text>
+		<>
+			<Text fontSize="xl">Hello World !!</Text>
+		</>
 	);
 }
