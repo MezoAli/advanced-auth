@@ -26,6 +26,7 @@ export default function HomePage() {
 			) : (
 				<Button onClick={() => signIn()}>Sign In</Button>
 			)}
+			<Text>Provider Name : {session?.user?.provider}</Text>
 		</Flex>
 	);
 }
