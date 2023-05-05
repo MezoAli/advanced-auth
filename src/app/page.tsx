@@ -4,10 +4,10 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
 export default async function Home() {
-	const session = await getServerSession(nextOptions);
-	if (!session) {
-		redirect("/auth/login?callbackUrl=/");
-	}
+	// const session = await getServerSession(nextOptions);
+	// if (!session) {
+	// 	redirect("/auth/login?callbackUrl=/");
+	// }
 
 	return <HomePage />;
 }
