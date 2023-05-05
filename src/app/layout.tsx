@@ -1,4 +1,12 @@
 import { Providers } from "@/components/providers";
+import { Metadata } from "next";
+import Head from "next/head";
+
+// export const metadata: Metadata = {
+// 	title: "...",
+// 	description: "...",
+// };
+
 export default function RootLayout({
 	children,
 }: {
@@ -6,7 +14,6 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<head />
 			<body>
 				<Providers>{children}</Providers>
 			</body>
