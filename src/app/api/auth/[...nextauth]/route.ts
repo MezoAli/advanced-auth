@@ -4,7 +4,7 @@ import NextAuth, { Account, NextAuthOptions } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 
-const nextOptions: NextAuthOptions = {
+export const nextOptions: NextAuthOptions = {
 	adapter: MongoDBAdapter(clientPromise),
 	providers: [
 		GithubProvider({

@@ -1,32 +1,24 @@
 "use client";
 import { Text } from "@chakra-ui/react";
-import { Avatar, Button, Flex } from "@chakra-ui/react";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 export default function HomePage() {
-	const { data: session } = useSession();
-	console.log(session);
+	const { data: session } = useSession({
+		required: true,
+		onUnauthenticated() {
+			redirect("/auth/login?callbackUrl=/");
+		},
+	});
 
 	return (
-		<Flex
-			flexDirection="column"
-			justifyContent="center"
-			alignItems="center"
-			gap={8}
+		<Text
+			color="blue.400"
+			textAlign="center"
+			backgroundColor="teal.100"
+			padding="20px"
 		>
-			<Text fontSize="xl">{session?.user?.name}</Text>
-			<Avatar
-				name={session?.user?.name!}
-				src={session?.user?.image!}
-				size="2xl"
-				display="block"
-			/>
-			{session ? (
-				<Button onClick={() => signOut()}>Sign Out</Button>
-			) : (
-				<Button onClick={() => signIn()}>Sign In</Button>
-			)}
-			<Text>Provider Name : {session?.user?.provider}</Text>
-		</Flex>
+			Wellcome to home page {session?.user.name}
+		</Text>
 	);
 }
