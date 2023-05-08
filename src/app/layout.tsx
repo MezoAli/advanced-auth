@@ -1,11 +1,13 @@
 import { Providers } from "@/components/providers";
-import { Metadata } from "next";
-import Head from "next/head";
+import { Inter } from "next/font/google";
+// import { Metadata } from "next";
 
 // export const metadata: Metadata = {
 // 	title: "...",
 // 	description: "...",
 // };
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
 	children,
@@ -14,7 +16,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body>
+			<body className={`${inter.className}`}>
 				<Providers>{children}</Providers>
 			</body>
 		</html>
